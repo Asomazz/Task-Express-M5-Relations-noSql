@@ -6,6 +6,7 @@ const {
   postsUpdate,
   postsDelete,
   postsCreate,
+  addPostToTag,
 } = require("./posts.controllers");
 
 postsRouter.param("postId", async (req, res, next, postId) => {
@@ -26,5 +27,7 @@ postsRouter.post("/:authorId", postsCreate);
 postsRouter.delete("/:postId", postsDelete);
 
 postsRouter.put("/:postId", postsUpdate);
+
+postsRouter.put("/:postId/:tagId", addPostToTag);
 
 module.exports = postsRouter;
